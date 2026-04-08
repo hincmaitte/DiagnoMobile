@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Módulo 4</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <a class="nav-pill" href="index.html">← Inicio</a>
+      <a class="nav-pill" href="modulo-3.html">Mód 3</a>
+      <span class="nav-pill active">Módulo 4</span>
+      <a class="nav-pill" href="modulo-5.html">Mód 5</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:60px">
+    <div class="hero-inner" style="grid-template-columns:1fr">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Módulo 4 de 6</div>
+        <h1 class="hero-title">Imágenes y <span>planos</span> de referencia</h1>
+        <p class="hero-desc">Referencias visuales para ubicar líneas y componentes en placa. Tocá cualquier imagen para ampliarla.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Galería</div>
+        <h2 class="section-title">Referencias visuales</h2>
+        <p class="section-desc">Usá estas imágenes como referencia para ubicar componentes en placa y seguir el recorrido real de las líneas.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="photo" data-full="fuente.png">
+          <img src="fuente.png" alt="Fuente de alimentación de laboratorio" />
+          <figcaption>Fuente de alimentación</figcaption>
+        </figure>
+        <figure class="photo" data-full="multimetro.png">
+          <img src="multimetro.png" alt="Multímetro digital" />
+          <figcaption>Multímetro digital</figcaption>
+        </figure>
+        <figure class="photo" data-full="diagrama.png">
+          <img src="diagrama.png" alt="Diagrama de recorrido eléctrico" />
+          <figcaption>Diagrama eléctrico</figcaption>
+        </figure>
+        <figure class="photo" data-full="imagenn.png">
+          <img src="imagenn.png" alt="Placa con recorrido de líneas" />
+          <figcaption>Recorrido en placa</figcaption>
+        </figure>
+        <figure class="photo" data-full="ic carga.png">
+          <img src="ic carga.png" alt="IC de carga" />
+          <figcaption>IC de carga y entorno</figcaption>
+        </figure>
+        <figure class="photo" data-full="vbatt.png">
+          <img src="vbatt.png" alt="Línea VBATT" />
+          <figcaption>Línea BATT</figcaption>
+        </figure>
+        <figure class="photo" data-full="board (5).jpg">
+          <img src="board (5).jpg" alt="Placa madre" />
+          <figcaption>Vista general de placa</figcaption>
+        </figure>
+        <figure class="photo" data-full="key 1.png">
+          <img src="key 1.png" alt="Botón power" />
+          <figcaption>Botón Power y líneas</figcaption>
+        </figure>
+        <figure class="photo" data-full="key 2.png">
+          <img src="key 2.png" alt="Líneas de datos" />
+          <figcaption>Líneas de datos</figcaption>
+        </figure>
+        <figure class="photo" data-full="key 3.png">
+          <img src="key 3.png" alt="Zona PMIC" />
+          <figcaption>Zona PMIC</figcaption>
+        </figure>
+      </div>
+
+      <div class="note-box" style="margin-top:32px">Tocá cualquier imagen para verla ampliada. Usá estas referencias junto con el plano específico del modelo que estés reparando.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Módulo 4 — Imágenes y planos</div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-inner">
+      <button class="lightbox-close">Cerrar</button>
+      <img src="" alt="Imagen ampliada" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Módulo 3</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <a class="nav-pill" href="index.html">← Inicio</a>
+      <a class="nav-pill" href="modulo-2.html">Mód 2</a>
+      <span class="nav-pill active">Módulo 3</span>
+      <a class="nav-pill" href="modulo-4.html">Mód 4</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:60px">
+    <div class="hero-inner" style="grid-template-columns:1fr">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Módulo 3 de 6</div>
+        <h1 class="hero-title">Proceso de <span>encendido</span></h1>
+        <p class="hero-desc">Secuencia de encendido, PMIC, líneas BUCK/LDO y lectura de consumos.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <main>
+
+    <!-- Secuencia -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Proceso</div>
+        <h2 class="section-title">Secuencia de encendido</h2>
+        <p class="section-desc">El PMIC controla todo. Si una línea falla, el equipo queda en consumo bajo o reinicia.</p>
+      </div>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Botón Power → señal PWRKEY</strong>
+            <p>La línea del botón ingresa al PMIC como PWRKEY. Si no cambia de estado, el PMIC no inicia.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>PMIC se activa</strong>
+            <p>Verifica condiciones de energía y habilita las primeras líneas internas de standby.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Nacen líneas BUCK y LDO en orden específico</strong>
+            <p>La secuencia tiene un orden determinado por el firmware del PMIC. Un fallo en cualquier línea puede bloquear el resto.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>CPU, RAM y periféricos reciben energía</strong>
+            <p>El sistema arranca, carga el bootloader y el SO.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- LDO vs BUCK -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Reguladores</div>
+        <h2 class="section-title">LDO vs BUCK</h2>
+        <p class="section-desc">Cada tipo tiene su uso ideal. Conocerlos permite interpretar el diagrama de bloques.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card card-accent-cyan">
+          <h4>LDO — Low Dropout</h4>
+          <p>Voltaje estable y muy bajo ruido. Ideal para sensores analógicos, RF y circuitos de audio. No tolera mucha diferencia entre entrada y salida.</p>
+          <br>
+          <p>Ejemplo de uso: alimentación del módulo GPS, micrófono, acelerómetro.</p>
+        </div>
+        <div class="card card-accent-blue">
+          <h4>BUCK — Regulador conmutado</h4>
+          <p>Alta eficiencia energética, puede entregar corrientes altas. Ideal para CPU, GPU, RAM y pantalla.</p>
+          <br>
+          <p>Ejemplo de uso: núcleo del procesador, memoria RAM, LCD/OLED.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Diagrama encendido -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Flujo visual</div>
+        <h2 class="section-title">Diagrama de encendido</h2>
+      </div>
+
+      <div class="diagram-block">
+        <h3>
+          Proceso paso a paso
+          <button class="btn btn-ghost btn-sm" data-diagram="encendido">▶ Iniciar</button>
+        </h3>
+        <div class="diagram" id="diagram-encendido">
+          <div class="node" data-step="0">BATT</div>
+          <div class="connector"></div>
+          <div class="node" data-step="1">Botón Power</div>
+          <div class="connector"></div>
+          <div class="node" data-step="2">PMIC</div>
+          <div class="connector"></div>
+          <div class="node" data-step="3">BUCK</div>
+          <div class="connector"></div>
+          <div class="node" data-step="4">LDO</div>
+          <div class="connector"></div>
+          <div class="node" data-step="5">CPU / RAM / RF</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Consumos -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Interpretación</div>
+        <h2 class="section-title">Patrones de consumo en fuente</h2>
+        <p class="section-desc">El amperímetro de la fuente cuenta la historia del equipo. Aprendé a leerlo.</p>
+      </div>
+
+      <div class="practice-layout">
+        <div class="practice-monitor">
+          <div class="monitor-display">
+            <div>
+              <div style="font-size:12px;color:var(--text-faint);margin-bottom:4px">CONSUMO</div>
+              <div class="monitor-value" id="monitor-val">0.000 A</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:12px;color:var(--text-faint)">ESTADO</div>
+            </div>
+          </div>
+          <div class="monitor-bar-wrap">
+            <div class="monitor-bar-fill" id="monitor-fill"></div>
+          </div>
+          <div class="monitor-status" id="monitor-status">Seleccioná un escenario para ver la interpretación.</div>
+        </div>
+
+        <div class="scenario-btns" id="scenario-btns">
+          <button class="scenario-btn" data-current="0.000" data-level="0"  data-status="Sin consumo: línea abierta o sin encendido.">0 mA — Línea abierta</button>
+          <button class="scenario-btn" data-current="0.060" data-level="12" data-status="Stand-by normal: consumo bajo y estable entre 10–80 mA.">60 mA — Stand-by</button>
+          <button class="scenario-btn" data-current="0.350" data-level="40" data-status="Encendido en proceso: consumo progresivo. Secuencia normal.">350 mA — Encendido normal</button>
+          <button class="scenario-btn" data-current="1.500" data-level="88" data-status="¡CORTO! Pico máximo inmediato. Desconectar y buscar el componente en corto.">1500 mA — Corto</button>
+          <button class="scenario-btn" data-current="0.200" data-level="28" data-status="Consumo inestable: posible falla de línea secundaria o reinicio.">200 mA — Inestable</button>
+        </div>
+      </div>
+
+      <div class="note-box">Un consumo inestable (sube y baja) suele indicar que el PMIC está intentando arrancar pero falla en alguna línea secundaria.</div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Módulo 3 — Proceso de encendido</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Override practice with new IDs
+    document.querySelectorAll('.scenario-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const val = document.getElementById('monitor-val');
+        const fill = document.getElementById('monitor-fill');
+        const status = document.getElementById('monitor-status');
+        if (val) val.textContent = `${parseFloat(btn.dataset.current).toFixed(3)} A`;
+        if (fill) fill.style.width = `${btn.dataset.level}%`;
+        if (status) status.textContent = btn.dataset.status;
+        const lvl = parseInt(btn.dataset.level, 10);
+        if (val) val.style.color = lvl >= 80 ? 'var(--red)' : lvl >= 35 ? 'var(--amber)' : 'var(--green)';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Diagnóstico eléctrico profesional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <span class="nav-pill active">Inicio</span>
+      <a class="nav-pill" href="#modulos">Módulos</a>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Curso técnico activo
+        </div>
+        <h1 class="hero-title">
+          Diagnóstico eléctrico<br>
+          <span>profesional</span> de celulares
+        </h1>
+        <p class="hero-desc">
+          Seguimiento de líneas, mediciones con multímetro e interpretación de consumos con fuente de alimentación. Un enfoque técnico, claro y aplicable al taller real.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#modulos">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+            Comenzar curso
+          </a>
+          <a class="btn btn-ghost" href="modulo-1.html">Módulo 1</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value">6</div>
+            <div class="hero-stat-label">Módulos</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">30+</div>
+            <div class="hero-stat-label">Ejercicios</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">2</div>
+            <div class="hero-stat-label">Simuladores</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+            </div>
+            <div class="info-card-title">Objetivo de la clase</div>
+          </div>
+          <ul>
+            <li>Comprender el rol de la fuente y el multímetro</li>
+            <li>Seguir líneas de carga y encendido paso a paso</li>
+            <li>Interpretar consumos y detectar fallas típicas</li>
+            <li>Medir voltajes clave con criterios profesionales</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+            </div>
+            <div class="info-card-title">Resultado esperado</div>
+          </div>
+          <p style="font-size:14px;color:var(--text-dim);line-height:1.65">
+            Al terminar podrás decidir si una falla está en la batería, la línea de carga, el IC de carga o el PMIC — solo con mediciones y consumo.
+          </p>
+        </div>
+        <div class="info-card" style="background:var(--blue-glow);border-color:var(--border-hi)">
+          <p style="font-size:13px;color:var(--text-dim);font-style:italic;line-height:1.7">
+            "El consumo cuenta la historia del equipo."<br>
+            "Mide, interpreta y decide: ahí empieza el diagnóstico real."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MÓDULOS ── -->
+  <div class="section-divider"></div>
+  <section class="section" id="modulos">
+    <div class="section-header">
+      <div class="section-tag">Ruta del curso</div>
+      <h2 class="section-title">Módulos</h2>
+      <p class="section-desc">Seguí el orden propuesto. Cada módulo se abre en una nueva pestaña para estudiar por partes.</p>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-num">01</div>
+        <div class="module-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-3 3-3-3 3-3z"/></svg>
+        </div>
+        <h3>Herramientas clave</h3>
+        <p>Fuente de alimentación, multímetro y multi‑tester: qué son, cómo se usan y cómo interpretar mediciones.</p>
+        <a class="btn btn-ghost btn-sm" href="modulo-1.html" target="_blank" rel="noopener">Ir al módulo →</a>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">02</div>
+        <div class="module-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 7h18M7 7l4 10 4-10M3 17h18"/></svg>
+        </div>
+        <h3>Líneas de carga</h3>
+        <p>Seguimiento de VBUS, OVP, IC de carga y nacimiento de la línea BATT. Valores y técnicas.</p>
+        <a class="btn btn-ghost btn-sm" href="modulo-2.html" target="_blank" rel="noopener">Ir al módulo →</a>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">03</div>
+        <div class="module-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M8 4.5a8 8 0 1 0 8 0"/></svg>
+        </div>
+        <h3>Proceso de encendido</h3>
+        <p>Secuencia de encendido, distribución con LDO y BUCK, y lectura de consumos.</p>
+        <a class="btn btn-ghost btn-sm" href="modulo-3.html" target="_blank" rel="noopener">Ir al módulo →</a>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">04</div>
+        <div class="module-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l4-4 4 4 4-4 6 6"/></svg>
+        </div>
+        <h3>Imágenes y planos</h3>
+        <p>Referencias visuales para ubicar líneas y componentes en placa. Galería ampliable.</p>
+        <a class="btn btn-ghost btn-sm" href="modulo-4.html" target="_blank" rel="noopener">Ir al módulo →</a>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">05</div>
+        <div class="module-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        </div>
+        <h3>Simulador interactivo</h3>
+        <p>Ejercicios dinámicos con feedback inmediato, progreso y explicaciones completas.</p>
+        <a class="btn btn-primary btn-sm" href="modulo-5.html" target="_blank" rel="noopener">Ir al módulo →</a>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">06</div>
+        <div class="module-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg>
+        </div>
+        <h3>Laboratorio de placa</h3>
+        <p>Aplicá rosin, inyectá voltaje y detectá el componente en corto en un simulador visual.</p>
+        <a class="btn btn-ghost btn-sm" href="modulo-6.html" target="_blank" rel="noopener">Ir al módulo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Clase de seguimiento de líneas y mediciones — Material educativo</div>
+  </footer>
+
+</body>
+</html>

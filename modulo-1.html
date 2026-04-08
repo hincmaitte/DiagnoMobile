@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Módulo 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <a class="nav-pill" href="index.html">← Inicio</a>
+      <span class="nav-pill active">Módulo 1</span>
+      <a class="nav-pill" href="modulo-2.html">Módulo 2</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:60px">
+    <div class="hero-inner" style="grid-template-columns:1fr">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Módulo 1 de 6</div>
+        <h1 class="hero-title">Herramientas clave del <span>diagnóstico</span></h1>
+        <p class="hero-desc">Fuente de alimentación, multímetro y multi‑tester: qué son, cómo se usan y cómo interpretar mediciones.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <main>
+
+    <!-- Herramientas -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Conceptos base</div>
+        <h2 class="section-title">Las tres herramientas esenciales</h2>
+        <p class="section-desc">Antes de seguir líneas, dominá las herramientas que te permiten medir y simular condiciones reales del equipo.</p>
+      </div>
+
+      <div class="definition-grid">
+        <div class="definition-card card-accent-blue">
+          <div class="def-label">Herramienta 01</div>
+          <div class="def-title">Fuente de alimentación</div>
+          <div class="def-body">
+            <p><strong>Definición:</strong> dispositivo que entrega voltaje y corriente regulados. En reparación, simula la batería y permite observar el consumo en tiempo real.</p>
+            <br>
+            <p><strong>Función en diagnóstico:</strong> simula la batería, enciende el equipo de forma controlada, detecta cortos mediante el límite de corriente y muestra patrones de consumo.</p>
+            <br>
+            <p><strong>Por qué es esencial:</strong> transforma un "cambio de piezas" en un diagnóstico técnico basado en mediciones.</p>
+          </div>
+        </div>
+
+        <div class="definition-card card-accent-cyan">
+          <div class="def-label">Herramienta 02</div>
+          <div class="def-title">Multímetro</div>
+          <div class="def-body">
+            <p><strong>Definición:</strong> instrumento de medición eléctrica que permite leer voltaje, resistencia, continuidad y corriente.</p>
+            <br>
+            <p><strong>Función en diagnóstico:</strong> confirma si una línea está presente, detecta líneas abiertas o cortocircuitadas y valida el estado de la batería o puerto de carga.</p>
+            <br>
+            <p><strong>Uso práctico:</strong> mediciones en VBUS, BATT, líneas LDO/BUCK y test points.</p>
+          </div>
+        </div>
+
+        <div class="definition-card card-accent-green">
+          <div class="def-label">Herramienta 03</div>
+          <div class="def-title">USB Power Meter</div>
+          <div class="def-body">
+            <p><strong>Definición:</strong> medidor en serie entre cargador y dispositivo para leer voltaje y corriente de carga.</p>
+            <br>
+            <p><strong>Función en diagnóstico:</strong> detecta si el equipo negocia carga, si el consumo es coherente y si hay cortes intermitentes.</p>
+            <br>
+            <p><strong>Valor en taller:</strong> rápido para clasificar fallas de carga sin abrir el equipo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Configuración de la fuente -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Procedimiento</div>
+        <h2 class="section-title">Configuración profesional de la fuente</h2>
+        <p class="section-desc">Seguí estos pasos antes de conectar cualquier equipo.</p>
+      </div>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Ajustar el voltaje a 4.20 V</strong>
+            <p>Simula una batería de litio completamente cargada. No superar este valor.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Configurar el límite de corriente a 3.0 A</strong>
+            <p>Permite el arranque y protege la placa en caso de corto.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Verificar polaridad</strong>
+            <p>Rojo (+) a BATT, negro (−) a GND. Un error destruye componentes.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Observar el consumo en reposo</strong>
+            <p>Conectar y observar: entre 10 mA y 80 mA es stand-by normal.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box">No superar 4.20 V. Un error de polaridad o sobrevoltaje puede dañar permanentemente el circuito.</div>
+
+      <!-- PSIM widget -->
+      <div style="margin-top:32px">
+        <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:20px">
+          Práctica: configurar la fuente virtual
+        </h3>
+        <div class="psim-wrap">
+          <div class="psim-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+              <div style="font-family:var(--font-display);font-size:15px;font-weight:700">Fuente de alimentación</div>
+              <span class="psim-status-badge" id="psim-status">Sin configurar</span>
+            </div>
+            <div class="psim-display">
+              <div>
+                <div class="psim-reading-label">Voltaje</div>
+                <div class="psim-reading-value" id="psim-read-v">0.00 V</div>
+              </div>
+              <div>
+                <div class="psim-reading-label">Corriente</div>
+                <div class="psim-reading-value" id="psim-read-a">0.00 A</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Voltaje (V)</label>
+              <input class="form-input" type="number" step="0.01" min="0" max="5" id="psim-input-v" placeholder="Ingresá el voltaje" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Corriente (A)</label>
+              <input class="form-input" type="number" step="0.1" min="0" max="5" id="psim-input-a" placeholder="Ingresá el amperaje" />
+            </div>
+            <button class="btn btn-primary" id="psim-check">Validar configuración</button>
+            <div class="feedback-msg" id="psim-feedback" style="margin-top:14px">Ingresá valores y validá.</div>
+          </div>
+
+          <div class="psim-card" style="background:var(--bg-elevated)">
+            <h4 style="font-family:var(--font-display);font-size:15px;font-weight:700;margin-bottom:14px">Referencia rápida</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-dim)">
+              <div>🎯 Voltaje correcto: <code>4.20 V</code></div>
+              <div>🎯 Corriente límite: <code>3.0 A</code></div>
+              <div>📏 Tolerancia aceptada: ±0.05 V / ±0.2 A</div>
+            </div>
+            <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
+              <h4 style="font-family:var(--font-display);font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text-dim)">Escala de lectura</h4>
+              <div style="font-family:var(--font-mono);font-size:13px;display:flex;flex-direction:column;gap:6px;color:var(--text-dim)">
+                <span><code>1.000 A</code> = 1000 mA</span>
+                <span><code>0.100 A</code> = 100 mA</span>
+                <span><code>0.010 A</code> = 10 mA</span>
+                <span><code>0.001 A</code> = 1 mA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- MM Quiz -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Práctica</div>
+        <h2 class="section-title">Reconocer funciones del multímetro</h2>
+        <p class="section-desc">Escribí cuatro funciones válidas del multímetro. Pueden ser modos de medición o tipos de prueba.</p>
+      </div>
+
+      <div class="mm-quiz-layout">
+        <div class="mm-img-card">
+          <img src="multimtero2.png" alt="Multímetro para práctica" />
+        </div>
+        <div class="mm-form-card">
+          <p style="font-size:14px;color:var(--text-dim)">Ejemplos válidos: voltaje, corriente, resistencia, continuidad, diodo, DC, AC…</p>
+          <div id="mm-fields">
+            <div class="form-group">
+              <label class="form-label">Función 1</label>
+              <div class="mm-field-inline">
+                <input class="form-input" type="text" placeholder="Escribí la función" />
+                <span class="mm-field-badge idle">—</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Función 2</label>
+              <div class="mm-field-inline">
+                <input class="form-input" type="text" placeholder="Escribí la función" />
+                <span class="mm-field-badge idle">—</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Función 3</label>
+              <div class="mm-field-inline">
+                <input class="form-input" type="text" placeholder="Escribí la función" />
+                <span class="mm-field-badge idle">—</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Función 4</label>
+              <div class="mm-field-inline">
+                <input class="form-input" type="text" placeholder="Escribí la función" />
+                <span class="mm-field-badge idle">—</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="mm-check">Validar respuestas</button>
+          <div class="feedback-msg" id="mm-result">Completá y validá.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Módulo 1 — Herramientas clave</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // patch: mm-field selector for new markup
+    const mmCheck = document.getElementById('mm-check');
+    if (mmCheck) {
+      mmCheck._patched = true;
+      mmCheck.addEventListener('click', () => {
+        const VALID = new Set(['corriente continua','corriente alterna','ac','dc','alterna','continua','voltaje','voltage','tension','resistencia','ohmio','ohm','diodo','continuidad','amperaje','corriente','miliamperios','ma','mv','vdc','vac']);
+        const norm = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,'').trim();
+        const rows = document.querySelectorAll('#mm-fields .form-group');
+        const result = document.getElementById('mm-result');
+        let all = true; const used = new Set();
+        rows.forEach(row => {
+          const input = row.querySelector('input');
+          const badge = row.querySelector('.mm-field-badge');
+          const v = norm(input.value);
+          const ok = v.length > 0 && VALID.has(v) && !used.has(v);
+          if (ok) { used.add(v); badge.textContent = '✓ OK'; badge.className = 'mm-field-badge ok'; }
+          else    { badge.textContent = '✗'; badge.className = 'mm-field-badge bad'; all = false; }
+        });
+        result.textContent = all ? '¡Excelente! Cuatro funciones correctas.' : 'Revisá las respuestas. Intentá de nuevo.';
+        result.className = `feedback-msg ${all ? 'ok' : 'bad'}`;
+      }, true);
+    }
+  </script>
+</body>
+</html>

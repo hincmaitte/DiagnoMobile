@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Módulo 6</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <a class="nav-pill" href="index.html">← Inicio</a>
+      <a class="nav-pill" href="modulo-5.html">Mód 5</a>
+      <span class="nav-pill active">Módulo 6</span>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:60px">
+    <div class="hero-inner" style="grid-template-columns:1fr">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Módulo 6 de 6</div>
+        <h1 class="hero-title">Laboratorio de <span>placa</span></h1>
+        <p class="hero-desc">Aplicá rosin, inyectá voltaje y detectá el componente en corto con feedback inmediato.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Laboratorio</div>
+        <h2 class="section-title">Simulación guiada</h2>
+        <p class="section-desc">Seguí el flujo del diagnóstico real: configurá la fuente, aplicá rosin, inyectá voltaje y seleccioná el componente en corto.</p>
+      </div>
+
+      <!-- HOW TO -->
+      <div class="card-grid" style="margin-bottom:32px">
+        <div class="card card-accent-blue">
+          <h4>1. Configurá la fuente</h4>
+          <p>Ajustá <code>4.20 V</code> y <code>3.0 A</code> antes de inyectar voltaje.</p>
+        </div>
+        <div class="card card-accent-cyan">
+          <h4>2. Iniciá y aplicá rosin</h4>
+          <p>Presioná "Inicio" y luego "Aplicar rosin" para cubrir la placa.</p>
+        </div>
+        <div class="card card-accent-green">
+          <h4>3. Inyectá voltaje</h4>
+          <p>Con rosin aplicado, el calor del corto fundirá el rosin en la zona afectada.</p>
+        </div>
+        <div class="card" style="border-top:2px solid var(--amber)">
+          <h4>4. Identificá la zona</h4>
+          <p>Tocá el componente donde ves el calor. Si es correcto, ¡lo encontraste!</p>
+        </div>
+      </div>
+
+      <!-- SIMULATOR 1 -->
+      <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:16px;color:var(--text-dim)">
+        Placa 1
+      </h3>
+      <div class="board-sim-layout simulator" data-correct="cap">
+
+        <div class="board-controls">
+          <div class="control-card">
+            <h4>Acciones</h4>
+            <div class="action-btns">
+              <button class="btn btn-primary sim-start">▶ Inicio ejercicio</button>
+              <button class="btn btn-ghost sim-inject">⚡ Inyectar voltaje</button>
+              <button class="btn btn-ghost sim-rosin">🧴 Aplicar rosin</button>
+            </div>
+          </div>
+
+          <div class="control-card">
+            <h4>Fuente de alimentación</h4>
+            <div class="form-group">
+              <label class="form-label">Voltaje (V)</label>
+              <input class="form-input sim-v" type="number" step="0.01" min="0" max="5" placeholder="4.20" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Corriente (A)</label>
+              <input class="form-input sim-a" type="number" step="0.1" min="0" max="5" placeholder="3.0" />
+            </div>
+            <button class="btn btn-ghost btn-sm sim-psu-check">Configurar fuente</button>
+            <div class="feedback-msg sim-psu-feedback" style="margin-top:10px">Fuente sin configurar.</div>
+          </div>
+
+          <div class="control-card">
+            <h4>Indicadores</h4>
+            <div class="meter-display">
+              <span class="label">Consumo</span>
+              <span class="value sim-current">0.00 A</span>
+            </div>
+            <div class="console-box sim-console">
+              <div class="console-line">Sistema listo. Presioná "Inicio ejercicio".</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-board board-view-card">
+          <div class="board-legend">
+            <div class="legend-dot"><span style="background:var(--blue)"></span>PMIC</div>
+            <div class="legend-dot"><span style="background:var(--amber)"></span>Capacitores</div>
+          </div>
+          <div class="board-wrap">
+            <img src="board (5).jpg" alt="Placa para simulación" />
+            <button class="zone pmic" data-zone="pmic" style="left:40%;top:30%;width:10%;height:10%;" aria-label="PMIC"></button>
+            <button class="zone cap"  data-zone="cap"  style="left:56%;top:48%;width:10%;height:10%;" aria-label="Capacitores"></button>
+            <div class="heat"></div>
+            <div class="rosin"></div>
+          </div>
+          <div class="sim-hint-box">Seleccioná una zona cuando aparezca el calor.</div>
+        </div>
+
+      </div>
+
+      <!-- SIMULATOR 2 -->
+      <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin:40px 0 16px;color:var(--text-dim)">
+        Placa 2
+      </h3>
+      <div class="board-sim-layout simulator" data-correct="cap">
+
+        <div class="board-controls">
+          <div class="control-card">
+            <h4>Acciones</h4>
+            <div class="action-btns">
+              <button class="btn btn-primary sim-start">▶ Inicio ejercicio</button>
+              <button class="btn btn-ghost sim-inject">⚡ Inyectar voltaje</button>
+              <button class="btn btn-ghost sim-rosin">🧴 Aplicar rosin</button>
+            </div>
+          </div>
+
+          <div class="control-card">
+            <h4>Fuente de alimentación</h4>
+            <div class="form-group">
+              <label class="form-label">Voltaje (V)</label>
+              <input class="form-input sim-v" type="number" step="0.01" min="0" max="5" placeholder="4.20" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Corriente (A)</label>
+              <input class="form-input sim-a" type="number" step="0.1" min="0" max="5" placeholder="3.0" />
+            </div>
+            <button class="btn btn-ghost btn-sm sim-psu-check">Configurar fuente</button>
+            <div class="feedback-msg sim-psu-feedback" style="margin-top:10px">Fuente sin configurar.</div>
+          </div>
+
+          <div class="control-card">
+            <h4>Indicadores</h4>
+            <div class="meter-display">
+              <span class="label">Consumo</span>
+              <span class="value sim-current">0.00 A</span>
+            </div>
+            <div class="console-box sim-console">
+              <div class="console-line">Sistema listo. Presioná "Inicio ejercicio".</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-board board-view-card">
+          <div class="board-legend">
+            <div class="legend-dot"><span style="background:var(--blue)"></span>PMIC</div>
+            <div class="legend-dot"><span style="background:var(--amber)"></span>Capacitores</div>
+          </div>
+          <div class="board-wrap">
+            <img src="placa.png" alt="Placa 2" />
+            <button class="zone pmic" data-zone="pmic" style="left:48%;top:26%;width:9%;height:9%;" aria-label="PMIC"></button>
+            <button class="zone cap"  data-zone="cap"  style="left:52%;top:36%;width:9%;height:9%;" aria-label="Capacitores"></button>
+            <div class="heat"></div>
+            <div class="rosin"></div>
+          </div>
+          <div class="sim-hint-box">Seleccioná una zona cuando aparezca el calor.</div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Módulo 6 — Laboratorio de placa</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Módulo 2</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <a class="nav-pill" href="index.html">← Inicio</a>
+      <a class="nav-pill" href="modulo-1.html">Mód 1</a>
+      <span class="nav-pill active">Módulo 2</span>
+      <a class="nav-pill" href="modulo-3.html">Mód 3</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:60px">
+    <div class="hero-inner" style="grid-template-columns:1fr">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Módulo 2 de 6</div>
+        <h1 class="hero-title">Seguimiento de <span>líneas de carga</span></h1>
+        <p class="hero-desc">Recorrido del pin de carga hasta la línea BATT, con mediciones y valores típicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <main>
+
+    <!-- Líneas del conector -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Anatomía del conector</div>
+        <h2 class="section-title">Líneas del conector de carga</h2>
+        <p class="section-desc">Cada pin tiene un rol específico. Entenderlos permite aislar la falla con precisión.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card card-accent-blue">
+          <h4>VBUS (+5 V)</h4>
+          <p>Línea de alimentación principal. Sin VBUS, el equipo no carga. Medir entre VBUS y GND: valor esperado <code>5.0 V</code>.</p>
+        </div>
+        <div class="card card-accent-cyan">
+          <h4>GND</h4>
+          <p>Referencia común y retorno de corriente. Todos los componentes deben tener continuidad con GND.</p>
+        </div>
+        <div class="card card-accent-green">
+          <h4>D+ / D−</h4>
+          <p>Líneas de datos. Permiten negociación de carga rápida. Si fallan: carga lenta o sin QC/PD.</p>
+        </div>
+        <div class="card" style="border-top:2px solid var(--amber)">
+          <h4>ID (micro-USB)</h4>
+          <p>Identifica el rol del conector: host o device. Usado en OTG y accesorios.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Definiciones técnicas -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Componentes clave</div>
+        <h2 class="section-title">OVP, IC de carga y PMIC</h2>
+        <p class="section-desc">Los tres actores del proceso de carga. Cada uno puede ser el origen de la falla.</p>
+      </div>
+
+      <div class="definition-grid">
+        <div class="definition-card card-accent-blue">
+          <div class="def-label">Protección</div>
+          <div class="def-title">OVP</div>
+          <div class="def-body">
+            <p><strong>Over Voltage Protection:</strong> circuito que bloquea sobretensiones antes de que ingresen a la placa.</p>
+            <br>
+            <p>Si se abre: el equipo no carga aunque el conector esté correcto. Si está en corto: puede pasar voltaje peligroso al IC de carga.</p>
+          </div>
+        </div>
+        <div class="definition-card card-accent-cyan">
+          <div class="def-label">Control</div>
+          <div class="def-title">IC de carga</div>
+          <div class="def-body">
+            <p><strong>Charging IC:</strong> integrado que controla todo el proceso de carga. Regula voltaje y corriente, y se comunica con el sistema.</p>
+            <br>
+            <p>Su falla: carga intermitente o nula. Se detecta midiendo VBUS antes y después del IC.</p>
+          </div>
+        </div>
+        <div class="definition-card card-accent-green">
+          <div class="def-label">Distribución</div>
+          <div class="def-title">PMIC</div>
+          <div class="def-body">
+            <p><strong>Power Management IC:</strong> distribuye voltajes a todo el sistema. Genera líneas LDO/BUCK y habilita la secuencia de encendido.</p>
+            <br>
+            <p>Si falla: el sistema puede encender parcialmente o no encender aunque BATT esté presente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Diagrama -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Flujo visual</div>
+        <h2 class="section-title">Proceso completo de carga</h2>
+      </div>
+
+      <div class="diagram-block">
+        <h3>
+          Diagrama interactivo
+          <button class="btn btn-ghost btn-sm" data-diagram="carga">▶ Iniciar</button>
+        </h3>
+        <div class="diagram" id="diagram-carga">
+          <div class="node" data-step="0">VBUS 5V</div>
+          <div class="connector"></div>
+          <div class="node" data-step="1">OVP</div>
+          <div class="connector"></div>
+          <div class="node" data-step="2">IC de carga</div>
+          <div class="connector"></div>
+          <div class="node" data-step="3">BATT 3.7–4.2V</div>
+          <div class="connector"></div>
+          <div class="node" data-step="4">PMIC</div>
+          <div class="connector"></div>
+          <div class="node" data-step="5">Sistema</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Mediciones -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Técnica</div>
+        <h2 class="section-title">Cómo medir con multímetro</h2>
+        <p class="section-desc">Tres mediciones básicas que permiten ubicar cualquier falla de carga.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card card-accent-blue">
+          <h4>VBUS</h4>
+          <p>Con cargador conectado, medir entre VBUS y GND.<br>Valor típico: <code>5.0 V</code>.<br>Si hay menos: revisar conector, fusible u OVP.</p>
+        </div>
+        <div class="card card-accent-cyan">
+          <h4>BATT</h4>
+          <p>Medir entre BATT y GND.<br>Valor típico: <code>3.7–4.2 V</code> según estado de carga.</p>
+        </div>
+        <div class="card card-accent-green">
+          <h4>Continuidad</h4>
+          <p>Con modo continuidad verificar que no haya corto entre BATT y GND. Un pitido fuerte y constante indica corto.</p>
+        </div>
+      </div>
+
+      <div class="note-box">Los valores pueden variar según el modelo. Siempre usá el plano del equipo para confirmar los puntos de prueba.</div>
+
+      <!-- Tabla de consumos USB -->
+      <div style="margin-top:32px">
+        <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:16px">Tabla de consumos USB</h3>
+        <div class="card-grid">
+          <div class="card"><h4 style="color:var(--text-faint);font-size:13px">Carga falsa</h4><p><code>5 V — 0.20 A a 0.30 A</code></p></div>
+          <div class="card"><h4 style="color:var(--text-faint);font-size:13px">Carga lenta</h4><p><code>5 V — 0.80 A a 1.20 A</code></p></div>
+          <div class="card"><h4 style="color:var(--text-faint);font-size:13px">Carga normal</h4><p><code>5 V — 1.50 A a 1.80 A</code></p></div>
+          <div class="card"><h4 style="color:var(--text-faint);font-size:13px">Carga rápida</h4><p><code>5 V — 1.80 A a 3.00 A</code></p></div>
+          <div class="card card-accent-blue"><h4 style="color:var(--text-faint);font-size:13px">Carga ultra</h4><p><code>9–12 V — 2 A a 6 A</code></p></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Módulo 2 — Líneas de carga</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

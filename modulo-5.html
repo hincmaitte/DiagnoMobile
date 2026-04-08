@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiagnoMobile — Módulo 5</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">DiagnoMobile</div>
+    <nav class="nav-links">
+      <a class="nav-pill" href="index.html">← Inicio</a>
+      <a class="nav-pill" href="modulo-4.html">Mód 4</a>
+      <span class="nav-pill active">Módulo 5</span>
+      <a class="nav-pill" href="modulo-6.html">Mód 6</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:60px">
+    <div class="hero-inner" style="grid-template-columns:1fr">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Módulo 5 de 6</div>
+        <h1 class="hero-title">Simulador <span>interactivo</span></h1>
+        <p class="hero-desc">Ejercicios dinámicos con feedback inmediato, explicaciones completas y seguimiento de progreso.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <div class="section-tag">Evaluación</div>
+        <h2 class="section-title">Simulador de diagnóstico</h2>
+        <p class="section-desc">8 preguntas de selección múltiple. Cada respuesta incluye una explicación técnica completa.</p>
+      </div>
+
+      <!-- MAIN SIMULATOR -->
+      <div class="simulator-wrap" id="interactive-simulator">
+
+        <div class="sim-progress-bar">
+          <div class="sim-progress-fill" style="width:0%"></div>
+        </div>
+
+        <div class="sim-header">
+          <div class="sim-header-left">
+            <h3>Diagnóstico eléctrico</h3>
+            <p>Seleccioná la opción correcta en cada pregunta</p>
+          </div>
+          <div class="sim-counter">1 / 8</div>
+        </div>
+
+        <!-- QUESTION BODY -->
+        <div class="sim-body">
+          <div class="sim-consigna"></div>
+          <div class="sim-options-grid"></div>
+          <div class="sim-feedback-box"></div>
+          <button class="btn btn-primary" id="sim-next" style="display:none">
+            Siguiente pregunta →
+          </button>
+        </div>
+
+        <!-- COMPLETION SCREEN -->
+        <div class="sim-complete">
+          <div class="sim-complete-icon">🎉</div>
+          <h3>¡Completado!</h3>
+          <p>Terminaste el simulador de diagnóstico</p>
+          <div class="sim-complete-score"></div>
+          <p style="color:var(--text-faint);font-size:14px">respuestas correctas</p>
+          <button class="btn btn-ghost" id="sim-restart" style="margin-top:10px">Reiniciar simulador</button>
+        </div>
+
+        <div class="sim-footer">
+          <div class="sim-score">Correctas: <span>0</span></div>
+        </div>
+
+      </div>
+
+      <!-- QUICK QUIZ (cards adicionales) -->
+      <div style="margin-top:48px">
+        <div class="section-header">
+          <div class="section-tag">Repaso rápido</div>
+          <h2 class="section-title">Preguntas de repaso</h2>
+          <p class="section-desc">Preguntas sueltas para repasar conceptos específicos.</p>
+        </div>
+
+        <div class="quiz-grid">
+          <div class="quiz-card" data-answer="b">
+            <div class="quiz-number">Q·01</div>
+            <div class="quiz-question">¿Qué configuración es la más segura para comenzar a encender un equipo con fuente?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-option="a">3.0 V y 2.0 A</button>
+              <button class="quiz-option" data-option="b">4.2 V y 3.0 A</button>
+              <button class="quiz-option" data-option="c">5.0 V y 5.0 A</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-card" data-answer="c">
+            <div class="quiz-number">Q·02</div>
+            <div class="quiz-question">¿Qué voltaje esperás en VBUS con el cargador conectado?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-option="a">3.7 V</button>
+              <button class="quiz-option" data-option="b">1.8 V</button>
+              <button class="quiz-option" data-option="c">5.0 V</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-card" data-answer="a">
+            <div class="quiz-number">Q·03</div>
+            <div class="quiz-question">La fuente marca consumo máximo inmediato. ¿Qué sugiere?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-option="a">Corto en la línea principal</button>
+              <button class="quiz-option" data-option="b">Encendido normal</button>
+              <button class="quiz-option" data-option="c">Batería al 100%</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-card" data-answer="b">
+            <div class="quiz-number">Q·04</div>
+            <div class="quiz-question">¿Cuál es el rol del OVP en la línea de carga?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-option="a">Incrementar corriente al PMIC</button>
+              <button class="quiz-option" data-option="b">Proteger contra sobretensión</button>
+              <button class="quiz-option" data-option="c">Generar líneas LDO</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">DiagnoMobile</div>
+    <div class="footer-copy">Módulo 5 — Simulador interactivo</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

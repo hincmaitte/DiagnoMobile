@@ -4,7 +4,7 @@ DiagnoMobile es un proyecto web educativo orientado al aprendizaje del análisis
 
 El sitio presenta una guía introductoria para comprender cómo interpretar los consumos de corriente en una fuente de alimentación cuando se trabaja con placas de celulares. A través de explicaciones simples y ejemplos básicos, el objetivo es ayudar a técnicos y estudiantes a reconocer comportamientos normales del equipo y detectar posibles fallas electrónicas durante el proceso de reparación.
 
-El análisis de consumos es una de las herramientas más utilizadas en el diagnóstico de hardware en smartphones, ya que permite identificar problemas relacionados con cortocircuitos, fallas de encendido o consumo anormal de energía en la placa del dispositivo. :contentReference[oaicite:1]{index=1}
+El análisis de consumos es una de las herramientas más utilizadas en el diagnóstico de hardware en smartphones, ya que permite identificar problemas relacionados con cortocircuitos, fallas de encendido o consumo anormal de energía en la placa del dispositivo. 
 
 ---
 
